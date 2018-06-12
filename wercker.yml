@@ -33,14 +33,11 @@ deploy-to-cluster:
         id: alpine
         cmd: /bin/sh
     steps:
-
-    - bash-template
-
-    - script:
+      - bash-template
+      - script:
         name: "Visualise Kubernetes config"
         code: cat kubernetes.yml
-
-    - kubectl:
+      - kubectl:
         name: deploy to kubernetes
         server: $KUBERNETES_MASTER
         #username: $KUBERNETES_USERNAME
